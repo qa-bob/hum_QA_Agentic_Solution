@@ -24,7 +24,7 @@ test.describe('Navigation @navigation', () => {
 
   // ── Link reachability ───────────────────────────────────────────────────────
 
-  test('all nav links are reachable (no 404s) @navigation', async ({ navigationPage, siteConfig }) => {
+  test('all nav links are reachable (no 404s) @navigation', async ({ navigationPage }) => {
     const results = await navigationPage.checkAllNavLinksReachable();
 
     if (results.length === 0) {
@@ -32,14 +32,25 @@ test.describe('Navigation @navigation', () => {
       return;
     }
 
-    const broken = results.filter((r) => !r.ok && r.status !== 0);
+    // 401/403 from a HEAD request often means bot-protection (WAF/Cloudflare
+    // challenge) rather than a genuinely dead link — real browsers loading
+    // the page normally aren't blocked. Treat those as a warning, not a failure.
+    const broken = results.filter((r) => !r.ok && r.status !== 0 && r.status !== 401 && r.status !== 403);
     const unreachable = results.filter((r) => r.status === 0);
+    const botBlocked = results.filter((r) => r.status === 401 || r.status === 403);
 
     // Log unreachable links as warnings (network issues, not 404s)
     if (unreachable.length > 0) {
       console.warn(
         '[navigation] Could not reach (network):\n' +
           unreachable.map((r) => `  ${r.url}`).join('\n')
+      );
+    }
+
+    if (botBlocked.length > 0) {
+      console.warn(
+        '[navigation] Blocked by bot-protection on a HEAD request (likely fine for real users):\n' +
+          botBlocked.map((r) => `  ${r.url} → HTTP ${r.status}`).join('\n')
       );
     }
 

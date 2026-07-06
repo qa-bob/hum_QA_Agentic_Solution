@@ -1,3 +1,10 @@
+---
+name: test-generator
+description: Reads a populated site.config.json and generates additional site-specific Playwright test files in tests/custom/, beyond the shared generic suites. Use when a site has unique functionality the generic suites don't cover, when asked for extra coverage of a specific page or flow, or when writing a regression test for a previously found bug.
+tools: Read, Write, Edit, Glob, Grep, WebFetch
+model: inherit
+---
+
 # Agent: test-generator
 
 ## Role

@@ -1,23 +1,35 @@
-﻿{
-    "name":  "HUM",
-    "url":  "https://www.humrideshare.com",
-    "description":  "",
-    "industry":  "",
-    "hasContactForm":  true,
-    "expectedNavItems":  [
-
-                         ],
-    "viewports":  [
-                      "desktop",
-                      "mobile",
-                      "tablet"
-                  ],
-    "skipVisual":  false,
-    "skipForms":  false,
-    "auth":  {
-                 "required":  false,
-                 "loginUrl":  "",
-                 "username":  "",
-                 "password":  ""
-             }
+{
+  "name": "HUM",
+  "url": "https://www.humrideshare.com",
+  "description": "A private driving app for professional rideshare drivers, providing the insurance and compliance drivers need to offer private trips, build a personal client base, and keep 100% of fares.",
+  "industry": "Rideshare / Transportation Technology (Insurtech for gig drivers)",
+  "hasContactForm": true,
+  "expectedNavItems": [
+    "Home",
+    "For Drivers",
+    "Learn",
+    "How it works",
+    "FAQ",
+    "Where we operate",
+    "Ride Assurance",
+    "Insurance",
+    "For Riders",
+    "Start Driving",
+    "Blog",
+    "Help",
+    "Contact"
+  ],
+  "viewports": [
+    "desktop",
+    "mobile",
+    "tablet"
+  ],
+  "skipVisual": false,
+  "skipForms": false,
+  "auth": {
+    "required": false,
+    "loginUrl": "",
+    "username": "",
+    "password": ""
+  }
 }

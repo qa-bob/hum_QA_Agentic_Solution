@@ -1,3 +1,7 @@
+---
+description: Inspect the live site and produce a fully-populated site.config.json
+---
+
 # /analyze-site
 
 Analyze a live website and produce a fully-populated `site.config.json`.

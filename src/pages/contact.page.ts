@@ -98,6 +98,15 @@ export class ContactFormPage extends BasePage {
     return (await nameField.count()) > 0;
   }
 
+  /** Returns the visible option labels of the form's inquiry-type <select>, if present. */
+  async getInquiryTypeOptions(): Promise<string[]> {
+    const form = await this.findContactForm();
+    if (!form) return [];
+    const select = form.locator('select').first();
+    if ((await select.count()) === 0) return [];
+    return select.locator('option').allTextContents();
+  }
+
   /** Returns true if the form has a submit button. */
   async hasSubmitButton(): Promise<boolean> {
     const form = await this.findContactForm();

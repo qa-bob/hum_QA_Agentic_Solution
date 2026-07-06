@@ -1,3 +1,7 @@
+---
+description: Summarize the last Playwright test run's pass/fail results
+---
+
 # /generate-report
 
 Open the Playwright HTML report and display a structured summary of test results.

@@ -1,3 +1,10 @@
+---
+name: site-analyzer
+description: Crawls a live website and produces a fully-populated site.config.json. Use proactively when onboarding a new company repo, when site.config.json still has empty placeholder fields, or when verifying an existing site.config.json is still accurate after a site redesign.
+tools: WebFetch, Bash, Read, Write
+model: inherit
+---
+
 # Agent: site-analyzer
 
 ## Role
